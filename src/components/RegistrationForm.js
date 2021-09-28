@@ -15,10 +15,10 @@ const RegistrationForm = () => {
   }
 
   const validationSchema=Yup.object().shape({
-    name:Yup.string().required("Required"),
+    name:Yup.string().min(2,"It's too short").required("Required"),
     email:Yup.string().email("Enter valid email").required("Required"),
     phoneNumber:Yup.string().typeError('Enter valid Phone Number').required('Required'),
-    password:Yup.string().required('Required')
+    password:Yup.string().min(8,"Minimum characters should be 8").required('Required')
   })
     
   
