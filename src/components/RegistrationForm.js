@@ -42,11 +42,11 @@ const RegistrationForm = () => {
                 <Form>
                   {console.log(props)}
                 {/* <TextField label="Name" name="name"fullWidth value={props.values.name} onChange={props.handleChange} helperText={<ErrorMessage name='name'/>}/> */}
-                <Field as={TextField} name='name'label="Name" fullWidth helperText={<ErrorMessage name='name'/>} />
+                <Field as={TextField} name='name'label="Name" fullWidth error={props.errors.name&&props.touched.name} helperText={<ErrorMessage name='name'/>} required/>
                 {/* <TextField label="Email" name="email"type="email" fullWidth {...props.getFieldProps('email')}/> */}
-                <Field as={TextField} name='email'label="Email" fullWidth helperText={<ErrorMessage name='email'/>} />
-                <Field as={TextField} name='phoneNumber'label="Phone Number" fullWidth helperText={<ErrorMessage name='phoneNumber'/>} />
-                <Field as={TextField} name='password' label='Password' fullWidth helperText={<ErrorMessage name='password'/>}/>
+                <Field as={TextField} name='email'label="Email" fullWidth error={props.errors.email&&props.touched.email} helperText={<ErrorMessage name='email'/>} required />
+                <Field as={TextField} name='phoneNumber'label="Phone Number" fullWidth error={props.errors.phoneNumber&&props.touched.phoneNumber} helperText={<ErrorMessage name='phoneNumber'/>} required />
+                <Field as={TextField} name='password' label='Password' fullWidth error={props.errors.password&&props.touched.password} helperText={<ErrorMessage name='password'/>} required/>
                 <Button
                   type="submit"
                   style={btnStyle}
