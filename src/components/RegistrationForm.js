@@ -24,7 +24,10 @@ const RegistrationForm = () => {
   
 
   const onSubmit=(values,props)=>{
-      console.log(values)
+      // console.log(values)
+      // console.log(values,props)
+      alert(JSON.stringify(values),null,2)
+      props.resetForm()
   }
 
 
@@ -40,7 +43,7 @@ const RegistrationForm = () => {
         <Formik initialValues={initialValues} validationSchema={validationSchema} onSubmit={onSubmit}>
             {(props)=>(
                 <Form>
-                  {console.log(props)}
+                  {/* {console.log(props)} */}
                 {/* <TextField label="Name" name="name"fullWidth value={props.values.name} onChange={props.handleChange} helperText={<ErrorMessage name='name'/>}/> */}
                 <Field as={TextField} name='name'label="Name" fullWidth error={props.errors.name&&props.touched.name} helperText={<ErrorMessage name='name'/>} required/>
                 {/* <TextField label="Email" name="email"type="email" fullWidth {...props.getFieldProps('email')}/> */}
