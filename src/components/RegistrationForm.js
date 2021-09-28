@@ -1,7 +1,7 @@
 import React from "react";
 import { Grid, Paper, Button, Typography, TextField } from "@material-ui/core";
 import {Formik,Form,Field} from 'formik'
-
+import * as Yup from 'yup'
 
 const RegistrationForm = () => {
   const paperStyle = { padding: "40px 20px", width: 250, margin: "20px auto" };
