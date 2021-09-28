@@ -14,9 +14,17 @@ const RegistrationForm = () => {
       password:''
   }
 
+  const validationSchema=Yup.object().shape({
+    name:Yup.string().required("Required")
+  })
+    
+  
+
   const onSubmit=(values,props)=>{
       console.log(values)
   }
+
+
   return (
     <Grid>
       <Paper elevation={5} style={paperStyle}>
@@ -26,9 +34,10 @@ const RegistrationForm = () => {
             Fill the form to create an account
           </Typography>
         </Grid>
-        <Formik initialValues={initialValues} onSubmit={onSubmit}>
+        <Formik initialValues={initialValues} validationSchema={validationSchema} onSubmit={onSubmit}>
             {(props)=>(
                 <Form>
+                  {console.log(props)}
                 <TextField label="Name" name="name"fullWidth value={props.values.name} onChange={props.handleChange}/>
                 <TextField label="Email" name="email"type="email" fullWidth {...props.getFieldProps('email')}/>
                 <Field as={TextField} name='phoneNumber'label="Phone Number" fullWidth />
